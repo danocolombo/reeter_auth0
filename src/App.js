@@ -18,7 +18,7 @@ class App extends Component {
         mainComponent = <CallBack />;                
         break;
       case "secret":
-        mainComponent = <Secret />;
+        mainComponent = this.props.auth.isAuthenticated() ? <Secret {...this.props}/> : <NotFound/>;
         break;
       default:
         mainComponent = <NotFound />;
@@ -31,7 +31,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Welcome to Reeter Auth0 sample, {this.props.name}<br/>
+            Welcome to Reeter_Auth0 sample<br/>
             To do anything you will need to login.
           </p>
         </header>

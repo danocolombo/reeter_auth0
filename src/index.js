@@ -11,12 +11,14 @@ window.setState = (changes) => {
     state = Object.assign({}, state, changes);
     ReactDOM.render(<App {...state} />, document.getElementById('root'));
 };
-// ReactDOM.render(<App {...state}/>, document.getElementById('root'));
 /* eslint no-restricted-globals: 0*/
+//---------------------------
+// get name from login profile, or set to guest
+let userName = auth.getProfile().given_name || "guest";
 //---------------------------
 // set initial state when app starts
 let initialState = {
-    name: "visitor",
+    name: userName,
     location: window.location.pathname.replace(/^\/?|\/$/g, ""),
     auth
 };
